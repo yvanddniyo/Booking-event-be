@@ -3,6 +3,9 @@ import cors from 'cors';
 import router from './routes';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import swaggerUi from 'swagger-ui-express';
+import docRouter from './config/swagger';
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -23,8 +26,8 @@ app.get("/", (req, res) => {
     },
   });
 });
-
-app.use("/api/v1", router);
+app.use('/api/docs', docRouter);
+app.use("/api", router);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

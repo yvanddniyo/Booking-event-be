@@ -20,6 +20,10 @@ const fileUpload = multer({
         }
         cb(null, true);
     },
+    // Add this to handle any field name
+    limits: {
+        fileSize: 5 * 1024 * 1024, // 5MB limit
+    }
 });
 
 export default fileUpload;

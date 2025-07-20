@@ -18,3 +18,14 @@ export const userSchema = z.object({
 });
 
 export type UserSchema = z.infer<typeof userSchema>;
+
+export const loginUserSchema = z.object({
+  email: z.string().email().min(1).max(255).refine((val) => val.trim() !== "", {
+    message: "Email is required",
+  }),
+  password: z.string().min(8).max(255).refine((val) => val.trim() !== "", {
+    message: "Password is required",
+  }),
+});
+
+export type LoginUserSchema = z.infer<typeof loginUserSchema>;

@@ -33,7 +33,7 @@ model Event {
   description String
   date      DateTime
   capacity  Int
-  image_url String?
+  image_url String
   price     Float
   location  String
   createdAt DateTime @default(now())
@@ -45,6 +45,9 @@ model Booking {
   id        String   @id @default(uuid())
   eventId   String
   userId    String
+  quantity  Int
+  totalPrice Float
+  status     BookingStatus   @default(PENDING)
   event     Event    @relation(fields: [eventId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
@@ -56,6 +59,11 @@ enum Role {
   USER
 }
 
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
 enum Status {
   ACTIVE
   INACTIVE

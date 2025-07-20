@@ -1,7 +1,7 @@
-import { hashPassword } from "../config/cryptPassword";
+import { comparePassword, hashPassword } from "../config/cryptPassword";
 import prisma from "../config/db";
 import { User } from "../generated/prisma";
-import { UserSchema, userSchema } from "../schemas/userSchema";
+import { LoginUserSchema, UserSchema, userSchema } from "../schemas/userSchema";
 import { EmailAlreadyExist } from "../utls/EmailAlreadyExist";
 
 export const createUser = async (user: UserSchema) => {
@@ -36,11 +36,16 @@ export const getUserById = async (id: string) => {
   return user;
 };
 
-export const updateUser = async (id: string, user: User) => {
+export const updateUser = async (id: string, user: Partial<User>) => {
+  console.log("id -->", id);
+  console.log("user -->", user);
   const updatedUser = await prisma.user.update({
     where: { id },
     data: user,
   });
+  if(!updatedUser){
+    throw new Error("User not found");
+  }
   return updatedUser;
 };
 
@@ -49,4 +54,19 @@ export const deleteUser = async (id: string) => {
     where: { id },
   });
   return deletedUser;
+};
+
+
+export const loginUser = async (user: LoginUserSchema) => {
+  const userLogin = await prisma.user.findUnique({
+    where: { email: user.email },
+  });
+  if(!userLogin){
+    throw new Error("User not found");
+  }
+  const isPasswordValid = await comparePassword(user.password, userLogin.password);
+  if(!isPasswordValid){
+    throw new Error("Invalid password");
+  }
+  return userLogin;
 };
