@@ -1,10 +1,38 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "CommonJS",
-    "target": "ES6",
-    "moduleResolution": "node",
-    "esModuleInterop": true
+      "target": "es6",
+      "skipLibCheck": true,
+      "lib": [
+          "ES6",
+          "dom"
+      ],
+      "rootDir": ".",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "strict": true,
+      "declaration": false,
+      "sourceMap": true,
+      "inlineSources": true,
+      "types": [
+          "node"
+      ],
+      "stripInternal": true,
+      "incremental": true,
+      "skipDefaultLibCheck": true,
+      "inlineSourceMap": false,
+      "noEmit": false
   },
-  "include": ["src"]
+  "include": [
+      "./**/*"
+  ],
+  "exclude": [
+      "node_modules"
+  ],
+  "ts-node": {
+      "cwd": ".",
+      "projectSearchDir": ".",
+      "require": [],
+      "project": "./tsconfig.json"
+  }
 }
