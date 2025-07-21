@@ -24,10 +24,10 @@ A full-stack Ticket Booking App that allows users to register, log in, create an
 
 ---
 ###  Stack
-Node.js + Express (with TypeScript)
-PostgreSQL 
-Prisma
-JWT for authentication
+- Node.js + Express (with TypeScript)
+- PostgreSQL 
+- Prisma
+- JWT for authentication
 
 ## 🚀 Getting Started Locally
 
