@@ -7,6 +7,7 @@ import { serve, setup } from 'swagger-ui-express';
 import { userSchemaDocs } from '../docs/schemaDocs/userSchemaDocs';
 import { bookingSchemaDocs } from '../docs/schemaDocs/bookingSchemaDocs';
 import { eventSchemaDocs } from '../docs/schemaDocs/eventSchemaDocs';
+import { getEventBookingEventController } from '../controllers/eventControllers';
 
 const docRouter = express.Router();
 
@@ -69,6 +70,9 @@ const options = {
         get: eventGetByIdDocs,
         patch: updateEventDocs,
         delete: eventDeleteDocs,
+      },
+      '/api/v1/events/:id/bookings': {
+        get: getEventBookingEventController,
       },
       '/api/v1/bookings': {
         post: bookingCreateDocs,

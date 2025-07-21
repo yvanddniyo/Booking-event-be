@@ -22,7 +22,11 @@ export const getEventBooking = async (id: string) => {
   const event = await prisma.event.findMany({
     where: { id },
     include: {
-      bookings: true,
+      bookings: {
+        include: {
+          user: true,
+        },
+      },
     },
   });
   return event;
