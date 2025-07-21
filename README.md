@@ -1,4 +1,4 @@
-# TicketBookingApp 🎟️
+# TicketBookingApp 
 
 A full-stack Ticket Booking App that allows users to register, log in, create and manage events, and book tickets. The application is built with clean code architecture, RESTful APIs, and follows modern development best practices.
 
@@ -12,27 +12,33 @@ A full-stack Ticket Booking App that allows users to register, log in, create an
 - Get all users
 - Get, update, and delete a specific user by ID
 
-### 📅 Event Management
+###  Event Management
 - Create, read, update, and delete events
 - Fetch all events or a specific event
 - Get bookings associated with a specific event
 
-### 🎫 Booking Management
+###  Booking Management
 - Create a booking
 - Get all bookings for a specific user
 - Update a booking
 
 ---
+###  Stack
+Node.js + Express (with TypeScript)
+PostgreSQL 
+Prisma
+JWT for authentication
 
 ## 🚀 Getting Started Locally
 
 ### 🔧 Prerequisites
 
 - Node.js (v18+ recommended)
-- npm or yarn
-- MongoDB or PostgreSQL (depending on your setup)
+- npm 
+- PostgreSQL
 
 ### 📥 Installation
+
 
 ```bash
 git clone https://github.com/yvanddniyo/Booking-event-be.git
