@@ -1,7 +1,7 @@
 import swaggerJSDoc from 'swagger-jsdoc';
 import express from "express";
 import { userCreateDocs, userDeleteDocs, userGetAllBookingsDocs, userGetAllDocs, userGetByIdDocs, userLoginDocs, userUpdateDocs } from '../docs/user';
-import { eventCreateDocs, eventDeleteDocs, eventGetAllDocs, eventGetByIdDocs, updateEventDocs } from '../docs/events';
+import { eventCreateDocs, eventDeleteDocs, eventGetAllDocs, eventGetBookingEventDocs, eventGetByIdDocs, updateEventDocs } from '../docs/events';
 import { bookingCreateDocs, bookingGetAllDocs, bookingUpdateDocs } from '../docs/booking';
 import { serve, setup } from 'swagger-ui-express';
 import { userSchemaDocs } from '../docs/schemaDocs/userSchemaDocs';
@@ -72,7 +72,7 @@ const options = {
         delete: eventDeleteDocs,
       },
       '/api/v1/events/:id/bookings': {
-        get: getEventBookingEventController,
+        get: eventGetBookingEventDocs,
       },
       '/api/v1/bookings': {
         post: bookingCreateDocs,

@@ -160,3 +160,35 @@ export const eventDeleteDocs = {
     },
   },
 };
+
+// src/docs/events.ts
+
+export const eventGetBookingEventDocs = {
+  tags: ['Events'],
+  summary: 'Get all bookings for a specific event',
+  parameters: [
+    {
+      name: 'id',
+      in: 'path',
+      required: true,
+      schema: { type: 'string' },
+      description: 'Event ID',
+    },
+  ],
+  responses: {
+    200: {
+      description: 'List of bookings for the event',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'array',
+            items: { $ref: '#/components/schemas/Booking' },
+          },
+        },
+      },
+    },
+    404: {
+      description: 'Event not found',
+    },
+  },
+};
