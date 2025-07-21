@@ -21,6 +21,11 @@ const options = {
     servers: [
       {
         url: 'http://localhost:3000/',
+        description: 'Local server',
+      },
+      {
+        url: 'https://booking-event-be.onrender.com/',
+        description: 'Production server',
       },
     ],
     tags: [
@@ -66,8 +71,10 @@ const options = {
         delete: eventDeleteDocs,
       },
       '/api/v1/bookings': {
-        get: bookingGetAllDocs,
         post: bookingCreateDocs,
+      },
+      '/api/v1/bookings/:userId': {
+        get: bookingGetAllDocs,
       },
       '/api/v1/bookings/:id': {
         patch: bookingUpdateDocs,

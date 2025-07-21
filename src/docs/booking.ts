@@ -1,4 +1,4 @@
-import { bookingSchemaDocs, bookingUpdateSchemaDocs } from "./schemaDocs/bookingSchemaDocs";
+import { bookingGetAllSchemaDocs, bookingSchemaDocs, bookingUpdateSchemaDocs } from "./schemaDocs/bookingSchemaDocs";
 
 export const bookingCreateDocs = {
   tags: ["Bookings"],
@@ -28,18 +28,26 @@ export const bookingCreateDocs = {
 
 export const bookingGetAllDocs = {
   tags: ["Bookings"],
-  description: "Get all bookings",
+  description: "Get all bookingss",
   summary: "Get all bookings",
-  path: "/api/v1/bookings",
+  path: "/api/v1/bookings/:userId",
   method: "get",
   security: [
     {
       bearerAuth: [],
     },
   ],
+  parameters: [
+    {
+      name: "userId",
+      in: "path",
+      required: true,
+      type: "string",
+    },
+  ],
   responses: {
-    200: {
-      description: "Bookings fetched successfully",
+    300: {
+      description: "Bookings fetched successfully...",
     },
   },
 };

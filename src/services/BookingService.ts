@@ -7,8 +7,15 @@ export const createBooking = async (booking: BookingSchema) => {
   });
   return newBooking;
 };
-export const getBookings = async () => {
-  const bookings = await prisma.booking.findMany();
+export const getBookings = async (userId: string) => {
+  const bookings = await prisma.booking.findMany({
+    where: {
+      userId: userId,
+    },
+    include: {
+      event: true,
+    },
+  });
   return bookings;
 };
 

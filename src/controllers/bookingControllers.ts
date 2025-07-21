@@ -22,12 +22,21 @@ export const createBookingController = async (req: Request, res: Response) => {
   }
 };
 export const getBookingsController = async (req: Request, res: Response) => {
-  const bookings = await getBookings();
-  res.status(200).json({
-    status: "success",
-    message: "Bookings fetched successfully",
-    data: bookings
-  });
+  try {
+    const { userId } = req.params;
+    const bookings = await getBookings(userId);
+    res.status(200).json({
+      status: "success",
+      message: "Bookings fetched successfully",
+      data: bookings
+    });
+    
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: error instanceof Error ? error.message : "Internal server error"
+    });
+  }
 };
 export const updateBookingController = async (req: Request, res: Response) => {
   const { id } = req.params;
