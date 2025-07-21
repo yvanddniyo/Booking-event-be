@@ -5,8 +5,8 @@ import { createBookingController, getBookingsController, updateBookingController
 
 const bookingRouter = Router();
 
-bookingRouter.post("/bookings", validateUser, createBookingController);
-bookingRouter.get("/bookings/:userId", validateUser, getBookingsController);
-bookingRouter.patch("/bookings/:id", validateUser, updateBookingController);
+bookingRouter.post("/bookings", createBookingController);
+bookingRouter.get("/bookings/:userId", getBookingsController);
+bookingRouter.patch("/bookings/:id", updateBookingController);
 
 export default bookingRouter;

@@ -14,7 +14,11 @@ export const createEvent = async (event: EventSchema, file: Express.Multer.File)
 };
 
 export const getEvents = async () => {
-  const events = await prisma.event.findMany();
+  const events = await prisma.event.findMany({
+    include: {
+      bookings: true,
+    },
+  });
   return events;
 };
 
@@ -35,6 +39,9 @@ export const getEventBooking = async (id: string) => {
 export const getEventById = async (id: string) => {
   const event = await prisma.event.findUnique({
     where: { id  },
+    include: {
+      bookings: true,
+    },
   });
   return event;
 };
