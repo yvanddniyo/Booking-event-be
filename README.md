@@ -6,7 +6,7 @@ A full-stack Ticket Booking App that allows users to register, log in, create an
 
 ### 🔐 Authentication
 - User Registration
-- User Login with token-based authentication
+- User Login with token-based authentication.
 
 ### 👤 User Management
 - Get all users
