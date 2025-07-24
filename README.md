@@ -1,4 +1,4 @@
-# Ticket BookingApp 
+# Ticket Booking App 
 
 A full-stack Ticket Booking App that allows users to register, log in, create and manage events, and book tickets. The application is built with clean code architecture, RESTful APIs, and follows modern development best practices.
 
