@@ -10,12 +10,12 @@ A full-stack Ticket Booking App that allows users to register, log in, create an
 
 ### 👤 User Management
 - Get all users
-- Get, update, and delete a specific user by ID
+- Get, update, and delete a specific user by ID.
 
 ###  Event Management
 - Create, read, update, and delete events
-- Fetch all events or a specific event
-- Get bookings associated with a specific event
+- Fetch all events or a specific event.
+- Get bookings associated with a specific event.
 
 ###  Booking Management
 - Create a booking
